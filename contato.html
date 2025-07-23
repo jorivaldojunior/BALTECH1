@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato - BALTECH Queimadores Industriais</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/fire-element.png" type="image/x-icon">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <style>
+    .hide-scroll-bar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hide-scroll-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Espaço para o menu inferior */
+    body {
+      padding-bottom: 72px;
+    }
+
+    /* Cores temáticas para indústria */
+    .industrial-primary {
+      color: #1e3a8a;
+    }
+    
+    .industrial-secondary {
+      color: #b91c1c;
+    }
+    
+    .bg-industrial-primary {
+      background-color: #1e3a8a;
+    }
+    
+    .bg-industrial-secondary {
+      background-color: #b91c1c;
+    }
+    
+    .hover-bg-industrial-secondary:hover {
+      background-color: #991b1b;
+    }
+
+    /* Estilo para o formulário */
+    .form-input {
+      @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all;
+    }
+    
+    .form-label {
+      @apply block text-sm font-medium text-gray-700 mb-1;
+    }
+    
+    /* Mapa responsivo */
+    .map-container {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25%; /* Proporção 16:9 */
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .map-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Cabeçalho -->
+  <header class="bg-white p-4 shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="./image/logo2.png" alt="Baltech Queimadores" class="w-24 h-24 md:w-24 md:h-24" />
+        <h1 class="text-lg font-bold industrial-primary hidden sm:block">BALTECH</h1>
+      </div>
+      <a href="index.html" class="industrial-primary text-sm md:text-base hover:underline">
+        <span class="font-semibold">Voltar ao início</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Placa de horário -->
+  <div class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+      <div class="time-plate" id="statusHorario">
+        <p class="text-lg font-medium">Funcionamento: <span class="font-bold">08:00 às 18:00</span></p>
+        <p class="text-sm">Segunda a Sexta</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main class="max-w-6xl mx-auto px-4 py-6">
+
+    <!-- Título da página -->
+    <div class="mb-8 text-center">
+      <h1 class="text-2xl md:text-3xl font-bold industrial-primary mb-2">Entre em Contato</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">Preencha o formulário abaixo para solicitar um atendimento ou visite nossa sede durante o horário comercial.</p>
+    </div>
+
+    <!-- Seção com mapa e formulário -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <!-- Mapa do Google -->
+      <div>
+        <h2 class="text-xl font-bold industrial-primary mb-4">Nossa Localização</h2>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.65342658440711!3d-23.565734367638806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="mt-4 bg-white p-4 rounded-lg shadow">
+          <h3 class="font-semibold industrial-primary mb-2">BALTECH Queimadores Industriais</h3>
+          <p class="text-gray-600">
+            <ion-icon name="location-outline" class="align-middle mr-1"></ion-icon>
+            Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100
+          </p>
+          <p class="text-gray-600 mt-1">
+            <ion-icon name="time-outline" class="align-middle mr-1"></ion-icon>
+            Segunda a Sexta, 08:00 às 18:00
+          </p>
+          <a href="tel:+5511999999999" class="text-blue-600 hover:underline mt-1 block">
+            <ion-icon name="call-outline" class="align-middle mr-1"></ion-icon>
+            (11) 99999-9999
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulário de contato -->
+      <div>
+        <h2 class="text-xl font-bold industrial-primary mb-4">Solicite um Atendimento</h2>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <form id="contactForm" class="space-y-4">
+            <div>
+              <label for="nome" class="form-label">Seu Nome</label>
+              <input type="text" id="nome" name="nome" class="form-input" required>
+            </div>
+            
+            <div>
+              <label for="telefone" class="form-label">Telefone/WhatsApp</label>
+              <input type="tel" id="telefone" name="telefone" class="form-input" required>
+            </div>
+            
+            <div>
+              <label for="email" class="form-label">E-mail (opcional)</label>
+              <input type="email" id="email" name="email" class="form-input">
+            </div>
+            
+            <div>
+              <label for="servico" class="form-label">Serviço de Interesse</label>
+              <select id="servico" name="servico" class="form-input" required>
+                <option value="" disabled selected>Selecione um serviço</option>
+                <option value="Queimadores Industriais">Queimadores Industriais</option>
+                <option value="Manutenção Preventiva">Manutenção Preventiva</option>
+                <option value="Manutenção Corretiva">Manutenção Corretiva</option>
+                <option value="Conversão de Combustíveis">Conversão de Combustíveis</option>
+                <option value="Treinamento Técnico">Treinamento Técnico</option>
+                <option value="Consultoria em Eficiência Energética">Consultoria em Eficiência Energética</option>
+                <option value="Outros">Outros</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="mensagem" class="form-label">Descreva seu interesse ou dúvida</label>
+              <textarea id="mensagem" name="mensagem" rows="4" class="form-input" required></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-industrial-secondary hover:bg-red-800 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center">
+              <ion-icon name="logo-whatsapp" class="mr-2 text-xl"></ion-icon>
+              Enviar Mensagem pelo WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de contato alternativo -->
+    <section class="bg-white rounded-xl shadow-lg p-6 mb-12">
+      <h2 class="text-xl font-bold industrial-primary mb-4 text-center">Outras Formas de Contato</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center p-4 rounded-lg hover:bg-gray-50 transition-colors">
+          <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+            <ion-icon name="call-outline" class="text-blue-900 text-2xl"></ion-icon>
+          </div>
+          <h3 class="font-semibold industrial-primary mb-1">Telefone</h3>
+          <p class="text-gray-600">(11) 99999-9999</p>
+          <a href="tel:+5511999999999" class="text-blue-600 text-sm hover:underline">Ligar agora</a>
+        </div>
+        
+        <div class="text-center p-4 rounded-lg hover:bg-gray-50 transition-colors">
+          <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+            <ion-icon name="mail-outline" class="text-blue-900 text-2xl"></ion-icon>
+          </div>
+          <h3 class="font-semibold industrial-primary mb-1">E-mail</h3>
+          <p class="text-gray-600">contato@baltech.com.br</p>
+          <a href="mailto:contato@baltech.com.br" class="text-blue-600 text-sm hover:underline">Enviar e-mail</a>
+        </div>
+        
+        <div class="text-center p-4 rounded-lg hover:bg-gray-50 transition-colors">
+          <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+            <ion-icon name="time-outline" class="text-blue-900 text-2xl"></ion-icon>
+          </div>
+          <h3 class="font-semibold industrial-primary mb-1">Horário Comercial</h3>
+          <p class="text-gray-600">Segunda a Sexta</p>
+          <p class="text-gray-600">08:00 às 18:00</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Menu inferior -->
+  <nav class="fixed bottom-0 w-full bg-white border-t shadow-lg flex justify-around items-center h-16 z-50">
+    <a href="index.html" class="flex flex-col items-center industrial-primary">
+      <ion-icon name="home-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Início</span>
+    </a>
+    <a href="sobre.html" class="flex flex-col items-center text-gray-500">
+      <ion-icon name="information-circle-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Sobre</span>
+    </a>
+    <a href="contato.html" class="flex flex-col items-center text-gray-500">
+      <ion-icon name="call-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Contato</span>
+    </a>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Controle do horário de funcionamento
+      const placa = document.getElementById('statusHorario');
+      const horarioSalvo = "08:00 às 18:00";
+
+      const [inicioStr, fimStr] = horarioSalvo.split('às').map(s => s.trim());
+      const [horaInicio, minutoInicio] = inicioStr.split(':').map(Number);
+      const [horaFim, minutoFim] = fimStr.split(':').map(Number);
+
+      const agora = new Date();
+      const horaAtual = agora.getHours();
+      const minutoAtual = agora.getMinutes();
+      const diaSemana = agora.getDay(); // 0 = Domingo, 1 = Segunda, etc.
+
+      let aberto = false;
+
+      // Verifica se é dia útil (Segunda a Sexta)
+      if (diaSemana >= 1 && diaSemana <= 5) {
+        if (horaAtual > horaInicio && horaAtual < horaFim) {
+          aberto = true;
+        } else if (horaAtual === horaInicio && minutoAtual >= minutoInicio) {
+          aberto = true;
+        } else if (horaAtual === horaFim && minutoAtual <= minutoFim) {
+          aberto = true;
+        }
+      }
+
+      placa.innerHTML = `
+        <p class="text-lg font-medium">
+        <span class="font-bold">${aberto ? 'Aberto agora' : 'Fechado no momento'}</span>
+        </p>
+        <p class="text-sm">Segunda a Sexta, das ${inicioStr} às ${fimStr}</p>
+      `;
+      placa.style.backgroundColor = aberto ? '#34d399' : '#ef4444';
+      placa.style.color = '#fff';
+
+      // Formulário para WhatsApp
+      const contactForm = document.getElementById('contactForm');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nome = document.getElementById('nome').value;
+        const telefone = document.getElementById('telefone').value;
+        const email = document.getElementById('email').value;
+        const servico = document.getElementById('servico').value;
+        const mensagem = document.getElementById('mensagem').value;
+        
+        // Formata o número de telefone (remove caracteres não numéricos)
+        const numeroWhatsApp = telefone.replace(/\D/g, '');
+        
+        // Cria a mensagem para o WhatsApp
+        let textoWhatsApp = `Olá, sou ${nome}.\n`;
+        textoWhatsApp += `Estou interessado(a) no serviço: ${servico}.\n\n`;
+        textoWhatsApp += `${mensagem}\n\n`;
+        
+        if (email) {
+          textoWhatsApp += `Meu e-mail: ${email}\n`;
+        }
+        
+        textoWhatsApp += `Telefone para contato: ${telefone}`;
+        
+        // Codifica a mensagem para URL
+        const textoCodificado = encodeURIComponent(textoWhatsApp);
+        
+        // Redireciona para o WhatsApp
+        window.open(`https://wa.me/55${numeroWhatsApp}?text=${textoCodificado}`, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
