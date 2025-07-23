@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baltech - Queimadores Industriais</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #014f8f; /* Cor exata do círculo da logo */
+      overflow-x: hidden;
+    }
+
+    .logo-animada {
+      animation: bounceHorizontal 3s infinite ease-in-out;
+      transform-origin: center bottom;
+      width: 300px;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .logo-animada {
+        width: 400px;
+      }
+    }
+
+    @keyframes bounceHorizontal {
+      0%, 100% {
+        transform: translateX(0) scale(1);
+      }
+      25% {
+        transform: translateX(-30px) scale(1.05, 0.95);
+      }
+      50% {
+        transform: translateX(0) scale(1);
+      }
+      75% {
+        transform: translateX(30px) scale(1.05, 0.95);
+      }
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen text-center px-4 text-white">
+
+  <!-- LOGO COM ANIMAÇÃO -->
+  <img 
+    src="./image/logo2.png" 
+    alt="Logo Baltech Queimadores Industriais" 
+    class="logo-animada" 
+    onclick="avancarPagina()" 
+  />
+
+  <p class="text-sm mt-4">Clique na logo para continuar</p>
+
+  <script>
+    function avancarPagina() {
+      window.location.href = "index1.html";
+    }
+  </script>
+
+</body>
+</html>
+
