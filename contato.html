@@ -44,13 +44,13 @@
       background-color: #991b1b;
     }
 
-    /* Estilo para o formulário */
+    /* Estilo moderno para o formulário */
     .form-input {
-      @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all;
+      @apply w-full px-4 py-3 border-b-2 border-gray-200 focus:outline-none focus:border-blue-500 bg-transparent transition-colors;
     }
     
     .form-label {
-      @apply block text-sm font-medium text-gray-700 mb-1;
+      @apply block text-sm font-medium text-gray-500 mb-1;
     }
     
     /* Mapa responsivo */
@@ -79,9 +79,43 @@
       max-width: 600px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+    
+    /* Efeito de card moderno */
+    .form-card {
+      @apply bg-white rounded-xl p-6;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Efeito de botão moderno */
+    .modern-btn {
+      @apply w-full bg-industrial-secondary text-white font-medium py-3 px-4 rounded-lg transition-all;
+      box-shadow: 0 4px 6px rgba(185, 28, 28, 0.2);
+    }
+    
+    .modern-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(185, 28, 28, 0.3);
+    }
+    
+    /* Estilo moderno para select */
+    .modern-select {
+      @apply w-full px-4 py-3 border-b-2 border-gray-200 focus:outline-none focus:border-blue-500 bg-transparent appearance-none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.5rem center;
+      background-size: 1.2em;
+    }
+    
+    /* Efeito de textarea */
+    .modern-textarea {
+      @apply w-full px-4 py-3 border-b-2 border-gray-200 focus:outline-none focus:border-blue-500 bg-transparent transition-colors;
+      min-height: 100px;
+      resize: none;
+    }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
  <!-- Cabeçalho -->
 <header class="bg-white p-4 shadow-md sticky top-0 z-50">
@@ -132,47 +166,46 @@
             loading="lazy">
           </iframe>
         </div>
-        <div class="mt-4 bg-white p-4 rounded-lg shadow">
-          <h3 class="font-semibold industrial-primary mb-2">BALTECH Queimadores Industriais</h3>
-          <p class="text-gray-600">
-            <ion-icon name="location-outline" class="align-middle mr-1"></ion-icon>
-            Av. Bernardo Vieira de Melo, nº 1730, CS 001, CXPST 729, Jaboatão dos Guararapes - PE, 54410-010
+        <div class="mt-4 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <h3 class="font-semibold industrial-primary mb-2 text-lg">BALTECH Queimadores Industriais</h3>
+          <p class="text-gray-600 flex items-start">
+            <ion-icon name="location-outline" class="align-middle mr-2 mt-1 flex-shrink-0"></ion-icon>
+            <span>Av. Bernardo Vieira de Melo, nº 1730, CS 001, CXPST 729, Jaboatão dos Guararapes - PE, 54410-010</span>
           </p>
-          <p class="text-gray-600 mt-1">
-            <ion-icon name="time-outline" class="align-middle mr-1"></ion-icon>
+          <p class="text-gray-600 mt-3 flex items-center">
+            <ion-icon name="time-outline" class="align-middle mr-2"></ion-icon>
             Segunda a Sexta, 08:00 às 18:00
           </p>
-          <a href="tel:+5581986216575" class="text-blue-600 hover:underline mt-1 block">
-            <ion-icon name="call-outline" class="align-middle mr-1"></ion-icon>
+          <a href="tel:+5581986216575" class="text-blue-600 hover:underline mt-3 flex items-center">
+            <ion-icon name="call-outline" class="align-middle mr-2"></ion-icon>
             (81) 98621-6575
           </a>
         </div>
       </div>
 
-      <!-- Formulário de contato -->
+      <!-- Formulário de contato moderno -->
       <div>
         <h2 class="text-xl font-bold industrial-primary mb-4">Solicite um Atendimento</h2>
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-          <form id="contactForm" class="space-y-4">
+        <div class="form-card">
+          <form id="contactForm" class="space-y-6">
             <div>
-              <label for="nome" class="form-label">Seu Nome</label>
-              <input type="text" id="nome" name="nome" class="form-input" required>
+              <input type="text" id="nome" name="nome" class="form-input" 
+                     placeholder="Seu nome completo" required>
             </div>
             
             <div>
-              <label for="telefone" class="form-label">Telefone/WhatsApp</label>
-              <input type="tel" id="telefone" name="telefone" class="form-input" required>
+              <input type="tel" id="telefone" name="telefone" class="form-input" 
+                     placeholder="WhatsApp ou telefone com DDD" required>
             </div>
             
             <div>
-              <label for="email" class="form-label">E-mail (opcional)</label>
-              <input type="email" id="email" name="email" class="form-input">
+              <input type="email" id="email" name="email" class="form-input" 
+                     placeholder="E-mail (opcional)">
             </div>
             
             <div>
-              <label for="servico" class="form-label">Serviço de Interesse</label>
-              <select id="servico" name="servico" class="form-input" required>
-                <option value="" disabled selected>Selecione um serviço</option>
+              <select id="servico" name="servico" class="modern-select" required>
+                <option value="" disabled selected>Qual serviço você precisa?</option>
                 <option value="Queimadores Industriais">Queimadores Industriais</option>
                 <option value="Manutenção Preventiva">Manutenção Preventiva</option>
                 <option value="Manutenção Corretiva">Manutenção Corretiva</option>
@@ -184,48 +217,56 @@
             </div>
             
             <div>
-              <label for="mensagem" class="form-label">Descreva seu interesse ou dúvida</label>
-              <textarea id="mensagem" name="mensagem" rows="4" class="form-input" required></textarea>
+              <textarea id="mensagem" name="mensagem" class="modern-textarea" 
+                        placeholder="Descreva sua necessidade ou dúvida (ex: preciso de um orçamento para...)" required></textarea>
             </div>
             
-            <button type="submit" class="w-full bg-industrial-secondary hover:bg-red-800 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center">
+            <button type="submit" class="modern-btn flex items-center justify-center">
               <ion-icon name="logo-whatsapp" class="mr-2 text-xl"></ion-icon>
-              Enviar Mensagem pelo WhatsApp
+              Enviar Mensagem
             </button>
+            
+            <p class="text-center text-xs text-gray-400 mt-4">
+              Ao enviar, você concorda com nossos Termos de Uso e Política de Privacidade
+            </p>
           </form>
         </div>
       </div>
     </div>
 
     <!-- Seção de contato alternativo -->
-    <section class="bg-white rounded-xl shadow-lg p-6 mb-12">
-      <h2 class="text-xl font-bold industrial-primary mb-4 text-center">Outras Formas de Contato</h2>
+    <section class="bg-white rounded-xl shadow-sm p-6 mb-12 border border-gray-100">
+      <h2 class="text-xl font-bold industrial-primary mb-6 text-center">Outras Formas de Contato</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="text-center p-4 rounded-lg hover:bg-gray-50 transition-colors">
-          <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="text-center p-6 rounded-lg hover:bg-gray-50 transition-colors">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
             <ion-icon name="call-outline" class="text-blue-900 text-2xl"></ion-icon>
           </div>
-          <h3 class="font-semibold industrial-primary mb-1">Telefone</h3>
-          <p class="text-gray-600">(81) 98621-6575</p>
-          <a href="tel:+5581986216575" class="text-blue-600 text-sm hover:underline">Ligar agora</a>
+          <h3 class="font-semibold industrial-primary mb-2">Telefone</h3>
+          <p class="text-gray-600 mb-2">(81) 98621-6575</p>
+          <a href="tel:+5581986216575" class="text-blue-600 text-sm hover:underline inline-flex items-center">
+            Ligar agora <ion-icon name="arrow-forward-outline" class="ml-1"></ion-icon>
+          </a>
         </div>
         
-        <div class="text-center p-4 rounded-lg hover:bg-gray-50 transition-colors">
-          <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="text-center p-6 rounded-lg hover:bg-gray-50 transition-colors">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
             <ion-icon name="mail-outline" class="text-blue-900 text-2xl"></ion-icon>
           </div>
-          <h3 class="font-semibold industrial-primary mb-1">E-mail</h3>
-          <p class="text-gray-600">contato@baltech.com.br</p>
-          <a href="mailto:contato@baltech.com.br" class="text-blue-600 text-sm hover:underline">Enviar e-mail</a>
+          <h3 class="font-semibold industrial-primary mb-2">E-mail</h3>
+          <p class="text-gray-600 mb-2">contato@baltech.com.br</p>
+          <a href="mailto:contato@baltech.com.br" class="text-blue-600 text-sm hover:underline inline-flex items-center">
+            Enviar e-mail <ion-icon name="arrow-forward-outline" class="ml-1"></ion-icon>
+          </a>
         </div>
         
-        <div class="text-center p-4 rounded-lg hover:bg-gray-50 transition-colors">
-          <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="text-center p-6 rounded-lg hover:bg-gray-50 transition-colors">
+          <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
             <ion-icon name="time-outline" class="text-blue-900 text-2xl"></ion-icon>
           </div>
-          <h3 class="font-semibold industrial-primary mb-1">Horário Comercial</h3>
+          <h3 class="font-semibold industrial-primary mb-2">Horário Comercial</h3>
           <p class="text-gray-600">Segunda a Sexta</p>
-          <p class="text-gray-600">08:00 às 18:00</p>
+          <p class="text-gray-600 font-medium">08:00 às 18:00</p>
         </div>
       </div>
     </section>
@@ -301,6 +342,19 @@
 
       // Formulário para WhatsApp
       const contactForm = document.getElementById('contactForm');
+      
+      // Adiciona máscara para telefone
+      const telefoneInput = document.getElementById('telefone');
+      telefoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 2) {
+          value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+        }
+        if (value.length > 10) {
+          value = `${value.substring(0, 10)}-${value.substring(10, 14)}`;
+        }
+        e.target.value = value;
+      });
       
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
