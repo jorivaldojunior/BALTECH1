@@ -5,41 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobre a BALTECH</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Adicionando Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <style>
-    .icon-voltar {
-      transition: all 0.3s ease;
-      transform: translateX(0);
+    /* Sistema de camadas fixas */
+    .fixed-header-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
-    .icon-voltar:hover {
-      transform: translateX(-3px);
+    
+    .header-content {
+      padding: 1rem;
+      height: 5.5rem; /* 88px */
+    }
+    
+    .time-plate-wrapper {
+      background: white;
+      padding-bottom: 0.75rem; /* 12px */
+    }
+    
+    .time-plate {
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      margin: 0 auto;
+      max-width: 600px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    /* Espaçamento dinâmico para o conteúdo */
+    .content-offset {
+      padding-top: 10.5rem; /* 88px (header) + 68px (placa) = 156px → 168px com margem */
+    }
+    
+    /* Menu fixo inferior */
+    .fixed-footer-layer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4.5rem; /* 72px */
+      z-index: 50;
+    }
+    
+    /* Garante que o body tenha espaço para os elementos fixos */
+    body {
+      padding-bottom: 4.5rem; /* Igual à altura do menu inferior */
+    }
+    
+    /* Cores temáticas */
+    .industrial-primary { color: #1e3a8a; }
+    .industrial-secondary { color: #b91c1c; }
+    .bg-industrial-primary { background-color: #1e3a8a; }
+    .bg-industrial-secondary { background-color: #b91c1c; }
+    
+    /* Ajustes para mobile */
+    @media (max-width: 640px) {
+      .content-offset {
+        padding-top: 11.5rem; /* Mais espaço em mobile */
+      }
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Header com ícone de voltar -->
-  <header class="bg-white p-4 shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
+  <!-- Camada fixa superior (header + placa) -->
+  <div class="fixed-header-layer">
+    <!-- Header -->
+    <div class="header-content max-w-6xl mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-2">
-        <img src="./image/logo2.png" alt="Baltech Queimadores" class="w-24 h-24 md:w-24 md:h-24" />
-        <h1 class="text-lg font-bold text-blue-900 hidden sm:block">BALTECH</h1>
+        <img src="./image/logo2.png" alt="Baltech Queimadores" class="w-16 h-16 md:w-20 md:h-20">
+        <h1 class="text-lg font-bold industrial-primary hidden sm:block">BALTECH</h1>
       </div>
-      <!-- Ícone de voltar moderno -->
-      <a href="index.html" class="text-blue-800 hover:text-blue-600">
-        <div class="flex items-center space-x-2 group">
-          <div class="icon-voltar flex items-center justify-center p-2 rounded-full bg-blue-50 group-hover:bg-blue-100">
-            <i class="fas fa-arrow-left-long text-xl md:text-2xl"></i>
-            <span class="ml-2 text-sm font-medium hidden md:inline-block">Voltar</span>
-          </div>
-        </div>
-      </a>
+      <div class="flex items-center space-x-4">
+        <p class="industrial-primary text-sm md:text-base">
+          <span class="font-semibold">Te contaremos um pouco sobre...</span>
+        </p>
+        <a href="#" class="flex flex-col items-center industrial-primary">
+          <ion-icon name="person-outline" class="w-5 h-5 md:w-6 md:h-6"></ion-icon>
+          <span class="text-xs mt-1 hidden md:block">Conta</span>
+        </a>
+      </div>
     </div>
-  </header>
+    
+    <!-- Placa de horário -->
+    <div class="time-plate-wrapper">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="time-plate" id="statusHorario">
+          <p class="text-lg font-medium">Funcionamento: <span class="font-bold">08:00 às 18:00</span></p>
+          <p class="text-sm">Segunda a Sexta</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Conteúdo -->
-  <main class="max-w-5xl mx-auto p-6 mt-8">
+  <!-- Conteúdo principal com espaçamento calculado -->
+  <main class="content-offset max-w-5xl mx-auto px-6 pb-6">
     <h2 class="text-2xl font-bold text-blue-900 mb-4">Quem Somos</h2>
     <p class="mb-4 text-justify">
       A <strong>BALTECH</strong> é uma empresa especializada no desenvolvimento e manutenção de queimadores industriais,
@@ -70,11 +137,68 @@
     </ul>
   </main>
 
-  <!-- Rodapé -->
-  <footer class="bg-white text-center p-4 mt-10 shadow-inner text-sm text-gray-600">
-    &copy; 2025 BALTECH - Todos os direitos reservados.
-  </footer>
+  <!-- Menu inferior fixo -->
+  <nav class="fixed-footer-layer bg-white border-t shadow-lg flex justify-around items-center">
+    <a href="index1.html" class="flex flex-col items-center industrial-primary">
+      <ion-icon name="home-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Início</span>
+    </a>
+    
+    <a href="contato.html" class="flex flex-col items-center text-gray-500">
+      <ion-icon name="call-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Contato</span>
+    </a>
+    <a href="index1.html#secao-categorias" class="flex flex-col items-center text-gray-500">
+      <ion-icon name="apps-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Serviços</span>
+    </a>
+    <a href="index.html" class="flex flex-col items-center text-gray-500">
+      <ion-icon name="exit-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Sair</span>
+    </a>
+  </nav>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Controle do horário de funcionamento
+      const placa = document.getElementById('statusHorario');
+      const horarioSalvo = "08:00 às 18:00";
+
+      const [inicioStr, fimStr] = horarioSalvo.split('às').map(s => s.trim());
+      const [horaInicio, minutoInicio] = inicioStr.split(':').map(Number);
+      const [horaFim, minutoFim] = fimStr.split(':').map(Number);
+
+      const agora = new Date();
+      const horaAtual = agora.getHours();
+      const minutoAtual = agora.getMinutes();
+      const diaSemana = agora.getDay(); // 0 = Domingo, 1 = Segunda, etc.
+
+      let aberto = false;
+
+      if (diaSemana >= 1 && diaSemana <= 5) {
+        if (horaAtual > horaInicio && horaAtual < horaFim) {
+          aberto = true;
+        } else if (horaAtual === horaInicio && minutoAtual >= minutoInicio) {
+          aberto = true;
+        } else if (horaAtual === horaFim && minutoAtual <= minutoFim) {
+          aberto = true;
+        }
+      }
+
+      placa.innerHTML = `
+        <p class="text-lg font-medium">
+        <span class="font-bold">${aberto ? 'Aberto agora' : 'Fechado no momento'}</span>
+        </p>
+        <p class="text-sm">Segunda a Sexta, das ${inicioStr} às ${fimStr}</p>
+      `;
+      placa.style.backgroundColor = aberto ? '#34d399' : '#ef4444';
+      placa.style.color = '#fff';
+    });
+  </script>
 </body>
 </html>
+
+
+
+
 

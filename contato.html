@@ -70,22 +70,36 @@
       height: 100%;
       border: 0;
     }
+
+    .time-plate {
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 600px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Cabeçalho -->
-  <header class="bg-white p-4 shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <img src="./image/logo2.png" alt="Baltech Queimadores" class="w-24 h-24 md:w-24 md:h-24" />
-        <h1 class="text-lg font-bold industrial-primary hidden sm:block">BALTECH</h1>
-      </div>
-      <a href="index.html" class="industrial-primary text-sm md:text-base hover:underline">
-        <span class="font-semibold">Voltar ao início</span>
-      </a>
+ <!-- Cabeçalho -->
+<header class="bg-white p-4 shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <img src="./image/logo2.png" alt="Baltech Queimadores" class="w-24 h-24 md:w-24 md:h-24" />
+      <h1 class="text-lg font-bold industrial-primary hidden sm:block">BALTECH</h1>
     </div>
-  </header>
+    <p class="industrial-primary text-sm md:text-base">
+          <span class="font-semibold">Tem tudo sobre contatos...</span>
+    </p>
+    <a href="#" class="flex flex-col items-center industrial-primary">
+      <ion-icon name="person-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1 hidden md:block">Conta</span>
+    </a>
+  </div>
+</header>
+
 
   <!-- Placa de horário -->
   <div class="bg-white shadow">
@@ -219,7 +233,7 @@
 
   <!-- Menu inferior -->
   <nav class="fixed bottom-0 w-full bg-white border-t shadow-lg flex justify-around items-center h-16 z-50">
-    <a href="index.html" class="flex flex-col items-center industrial-primary">
+    <a href="index1.html" class="flex flex-col items-center industrial-primary">
       <ion-icon name="home-outline" class="w-6 h-6"></ion-icon>
       <span class="text-xs mt-1">Início</span>
     </a>
@@ -227,9 +241,14 @@
       <ion-icon name="information-circle-outline" class="w-6 h-6"></ion-icon>
       <span class="text-xs mt-1">Sobre</span>
     </a>
-    <a href="contato.html" class="flex flex-col items-center text-gray-500">
-      <ion-icon name="call-outline" class="w-6 h-6"></ion-icon>
-      <span class="text-xs mt-1">Contato</span>
+    <a href="index1.html#secao-categorias" class="flex flex-col items-center text-gray-500">
+      <ion-icon name="apps-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Serviços</span>
+    </a>
+    
+    <a href="index.html" class="flex flex-col items-center text-gray-500">
+      <ion-icon name="exit-outline" class="w-6 h-6"></ion-icon>
+      <span class="text-xs mt-1">Sair</span>
     </a>
   </nav>
 
