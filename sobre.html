@@ -71,6 +71,15 @@
         padding-top: 11.5rem; /* Mais espaço em mobile */
       }
     }
+    
+    /* Centraliza apenas o texto no header em telas grandes */
+    @media (min-width: 640px) {
+      .header-text-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -83,15 +92,17 @@
         <img src="./image/logo2.png" alt="Baltech Queimadores" class="w-16 h-16 md:w-20 md:h-20">
         <h1 class="text-lg font-bold industrial-primary hidden sm:block">BALTECH</h1>
       </div>
-      <div class="flex items-center space-x-4">
-        <p class="industrial-primary text-sm md:text-base">
-          <span class="font-semibold">Te contaremos um pouco sobre...</span>
-        </p>
-        <a href="#" class="flex flex-col items-center industrial-primary">
-          <ion-icon name="person-outline" class="w-5 h-5 md:w-6 md:h-6"></ion-icon>
-          <span class="text-xs mt-1 hidden md:block">Conta</span>
-        </a>
-      </div>
+      
+      <!-- Texto centralizado apenas em telas grandes -->
+      <p class="industrial-primary text-sm md:text-base header-text-center">
+        <span class="font-semibold">Te contaremos um pouco sobre...</span>
+      </p>
+      
+      <!-- Ícone de conta (permanece alinhado à direita) -->
+      <a href="#" class="flex flex-col items-center industrial-primary">
+        <ion-icon name="person-outline" class="w-5 h-5 md:w-6 md:h-6"></ion-icon>
+        <span class="text-xs mt-1 hidden md:block">Conta</span>
+      </a>
     </div>
     
     <!-- Placa de horário -->
@@ -104,6 +115,7 @@
       </div>
     </div>
   </div>
+  <br>
 
   <!-- Conteúdo principal com espaçamento calculado -->
   <main class="content-offset max-w-5xl mx-auto px-6 pb-6">
@@ -197,8 +209,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
