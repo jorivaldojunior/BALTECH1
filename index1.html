@@ -756,46 +756,112 @@
     </nav>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Controle do horário de funcionamento
-        const placa = document.getElementById("statusHorario");
-        const horarioSalvo = "08:00 às 18:00";
+     document.addEventListener("DOMContentLoaded", function() {
+  // Controle do carrossel de banners
+  const carousel = document.getElementById("banner-carousel");
+  const items = document.querySelectorAll(".carousel-item");
+  const indicators = document.querySelectorAll(".banner-indicator");
+  let currentIndex = 0;
+  const totalItems = items.length;
+  let intervalId;
 
-        const [inicioStr, fimStr] = horarioSalvo
-          .split("às")
-          .map((s) => s.trim());
-        const [horaInicio, minutoInicio] = inicioStr.split(":").map(Number);
-        const [horaFim, minutoFim] = fimStr.split(":").map(Number);
+  // Função para atualizar o carrossel
+  function updateCarousel() {
+    // Move o carrossel
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // Atualiza os indicadores
+    indicators.forEach((indicator, index) => {
+      if (index === currentIndex) {
+        indicator.classList.add("bg-white");
+        indicator.classList.remove("bg-opacity-50");
+      } else {
+        indicator.classList.remove("bg-white");
+        indicator.classList.add("bg-opacity-50");
+      }
+    });
+  }
 
-        const agora = new Date();
-        const horaAtual = agora.getHours();
-        const minutoAtual = agora.getMinutes();
-        const diaSemana = agora.getDay(); // 0 = Domingo, 1 = Segunda, etc.
+  // Avança para o próximo slide
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
+  }
 
-        let aberto = false;
+  // Configura clique nos indicadores
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      currentIndex = index;
+      updateCarousel();
+      resetInterval();
+    });
+  });
 
-        // Verifica se é dia útil (Segunda a Sexta)
-        if (diaSemana >= 1 && diaSemana <= 5) {
-          if (horaAtual > horaInicio && horaAtual < horaFim) {
-            aberto = true;
-          } else if (horaAtual === horaInicio && minutoAtual >= minutoInicio) {
-            aberto = true;
-          } else if (horaAtual === horaFim && minutoAtual <= minutoFim) {
-            aberto = true;
-          }
-        }
+  // Inicia o intervalo automático
+  function startInterval() {
+    intervalId = setInterval(nextSlide, 5000); // Muda a cada 5 segundos
+  }
 
-        placa.innerHTML = `
-      <p class="text-lg font-medium">
-        <span class="font-bold">${
-          aberto ? "Aberto agora" : "Fechado no momento"
-        }</span>
-      </p>
-      <p class="text-sm">Segunda a Sexta, das ${inicioStr} às ${fimStr}</p>
-    `;
-        placa.style.backgroundColor = aberto ? "#34d399" : "#ef4444";
-        placa.style.color = "#fff";
-      });
+  // Reseta o intervalo quando o usuário interage
+  function resetInterval() {
+    clearInterval(intervalId);
+    startInterval();
+  }
+
+  // Inicializa o carrossel
+  function initCarousel() {
+    updateCarousel();
+    startInterval();
+    
+    // Pausa quando o mouse está sobre o carrossel
+    carousel.addEventListener("mouseenter", () => {
+      clearInterval(intervalId);
+    });
+
+    // Retoma quando o mouse sai
+    carousel.addEventListener("mouseleave", () => {
+      startInterval();
+    });
+  }
+
+  // Inicia o carrossel
+  initCarousel();
+
+  // Controle do horário de funcionamento (código existente)
+  const placa = document.getElementById("statusHorario");
+  const horarioSalvo = "08:00 às 18:00";
+
+  const [inicioStr, fimStr] = horarioSalvo.split("às").map((s) => s.trim());
+  const [horaInicio, minutoInicio] = inicioStr.split(":").map(Number);
+  const [horaFim, minutoFim] = fimStr.split(":").map(Number);
+
+  const agora = new Date();
+  const horaAtual = agora.getHours();
+  const minutoAtual = agora.getMinutes();
+  const diaSemana = agora.getDay(); // 0 = Domingo, 1 = Segunda, etc.
+
+  let aberto = false;
+
+  // Verifica se é dia útil (Segunda a Sexta)
+  if (diaSemana >= 1 && diaSemana <= 5) {
+    if (horaAtual > horaInicio && horaAtual < horaFim) {
+      aberto = true;
+    } else if (horaAtual === horaInicio && minutoAtual >= minutoInicio) {
+      aberto = true;
+    } else if (horaAtual === horaFim && minutoAtual <= minutoFim) {
+      aberto = true;
+    }
+  }
+
+  placa.innerHTML = `
+    <p class="text-lg font-medium">
+      <span class="font-bold">${aberto ? "Aberto agora" : "Fechado no momento"}</span>
+    </p>
+    <p class="text-sm">Segunda a Sexta, das ${inicioStr} às ${fimStr}</p>
+  `;
+  placa.style.backgroundColor = aberto ? "#34d399" : "#ef4444";
+  placa.style.color = "#fff";
+});
     </script>
   </body>
 </html>
