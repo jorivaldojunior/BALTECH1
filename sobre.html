@@ -149,35 +149,61 @@
     </ul>
   </main>
 
-  <!-- Menu inferior fixo -->
-  <nav class="fixed-footer-layer bg-white border-t shadow-lg flex justify-around items-center">
-    <a href="index1.html" class="flex flex-col items-center industrial-primary">
-      <ion-icon name="home-outline" class="w-6 h-6"></ion-icon>
-      <span class="text-xs mt-1">Início</span>
-    </a>
-    
-    <a href="contato.html" class="flex flex-col items-center text-gray-500">
-      <ion-icon name="call-outline" class="w-6 h-6"></ion-icon>
-      <span class="text-xs mt-1">Contato</span>
-    </a>
-    <a href="index1.html#secao-categorias" class="flex flex-col items-center text-gray-500">
-      <ion-icon name="apps-outline" class="w-6 h-6"></ion-icon>
-      <span class="text-xs mt-1">Serviços</span>
-    </a>
-    <!-- Ícones de redes sociais -->
-    <a href="https://www.instagram.com/baltechqueimadores/" target="_blank" class="flex flex-col items-center text-gray-500">
-      <ion-icon name="logo-instagram" class="w-6 h-6"></ion-icon>
-      <span class="text-xs mt-1">Instagram</span>
-    </a>
-    <a href="https://www.linkedin.com/in/baltech-queimadores-industriais-50b45435/?originalSubdomain=br" target="_blank" class="flex flex-col items-center text-gray-500">
-      <ion-icon name="logo-linkedin" class="w-6 h-6"></ion-icon>
-      <span class="text-xs mt-1">LinkedIn</span>
-    </a>
-    <a href="index.html" class="flex flex-col items-center text-gray-500">
-      <ion-icon name="exit-outline" class="w-6 h-6"></ion-icon>
-      <span class="text-xs mt-1">Sair</span>
-    </a>
-  </nav>
+  
+   <!-- Menu inferior -->
+    <nav class="fixed bottom-0 w-full bg-white border-t shadow-lg z-50">
+      <div class="relative h-16 overflow-x-auto hide-scroll-bar">
+        <div
+          class="absolute flex space-x-8 px-4 h-full items-center whitespace-nowrap"
+        >
+          <a
+            href="index1.html"
+            class="flex flex-col items-center industrial-primary min-w-max"
+          >
+            <ion-icon name="home-outline" class="w-6 h-6"></ion-icon>
+            <span class="text-xs mt-1">Início</span>
+          </a>
+          <a
+            href="#secao-categorias"
+            class="flex flex-col items-center text-gray-500 min-w-max"
+          >
+            <ion-icon name="apps-outline" class="w-6 h-6"></ion-icon>
+            <span class="text-xs mt-1">Serviços</span>
+          </a>
+          <a
+            href="contato.html"
+            class="flex flex-col items-center text-gray-500 min-w-max"
+          >
+            <ion-icon name="call-outline" class="w-6 h-6"></ion-icon>
+            <span class="text-xs mt-1">Contato</span>
+          </a>
+         
+          <a
+            href="https://www.instagram.com/baltechqueimadores/"
+            target="_blank"
+            class="flex flex-col items-center text-gray-500 min-w-max"
+          >
+            <ion-icon name="logo-instagram" class="w-6 h-6"></ion-icon>
+            <span class="text-xs mt-1">Instagram</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/baltech-queimadores-industriais-50b45435/?originalSubdomain=br"
+            target="_blank"
+            class="flex flex-col items-center text-gray-500 min-w-max"
+          >
+            <ion-icon name="logo-linkedin" class="w-6 h-6"></ion-icon>
+            <span class="text-xs mt-1">LinkedIn</span>
+          </a>
+          <a
+            href="index.html"
+            class="flex flex-col items-center text-gray-500 min-w-max"
+          >
+            <ion-icon name="exit-outline" class="w-6 h-6"></ion-icon>
+            <span class="text-xs mt-1">Sair</span>
+          </a>
+        </div>
+      </div>
+    </nav>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
